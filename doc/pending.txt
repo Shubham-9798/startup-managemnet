@@ -1,0 +1,9 @@
+Server : save as draft
+         final submit
+         
+
+
+how admin view submited idea 
+=> view newly submited, view by teams, views by not evaluted
+=> different status evaluation
+==> track evaluation

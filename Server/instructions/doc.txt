@@ -1,0 +1,40 @@
+User.findOne({age: {$gte:5} }, function (err, docs) { 
+    if (err){ 
+        console.log(err) 
+    } 
+    else{ 
+        console.log("Result : ", docs); 
+    } 
+}); 
+
+user.updateOne({'_id': new ObjectId(tokenObj._id)}, {refresh_token: String(refreshToken.refreshToken)}, {upsert: true},
+function(err) {
+if(err) apiResponse.ErrorResponse(res, "Error v")
+apiResponse.sendToken(res, accessToken, refreshToken) 
+})
+----------------------
+let id = '58c85d1b7932a14c7a0a320d';
+let o_id = new ObjectId(id);   // id as a string is passed
+db.collection.findOne({"_id":o_id});
+
+db.collection.findById('4ecbe7f9e8c1c9092c000027');
+
+db.getCollection('Blog').find({"_id":ObjectId("58f6724e97990e9de4f17c23")})
+
+-----------------------------
+function validator (v) {
+  return v.length > 5;
+};
+new Schema({
+    name: { type: String, validate: [validator, 'my error type'] }
+})
+schema.path('name').validate(function (v) {
+  return v.length > 5;
+}, 'my error type'); 
+-----------------------
+let User = await new userSchema ({
+    username : req.body.username,
+    password: req.body.password,
+    role: req.body.role,
+    createdDate: utility.currentDate()
+})
