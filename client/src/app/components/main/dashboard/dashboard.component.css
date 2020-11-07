@@ -1,0 +1,13 @@
+#sidebar {
+    max-width: 25%;
+    background-color: rgb(32, 32, 167);
+    color: white;
+}
+
+.wrapper {
+    display: flex;
+}
+
+#content {
+    flex-grow: 1;
+}

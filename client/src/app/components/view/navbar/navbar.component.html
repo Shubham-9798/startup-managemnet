@@ -16,15 +16,15 @@
         <div class="navbar-nav ml-auto">
             
             <ng-container
-            *ngIf="state.isLogin; then loggedIn; else loggedOut">
+            *ngIf="(isLogin$|async); then loggedIn; else loggedOut">
             </ng-container>
 
             <ng-template #loggedIn>
-                <a class="nav-item nav-link">{{state.data.username}}</a>
-                <!-- <a routerLink="/register" class="nav-item nav-link">Register</a> -->
+                <h3 class="nav-item nav-link">{{user.data.username}}</h3>
+                <button (click)="logout()"> Logout</button>
             </ng-template>
             <ng-template #loggedOut>
-                <a routerLink="/login" class="nav-item nav-link" >Login</a>
+                <a class="nav-item nav-link" (click)="login()">Login</a>
                 <a routerLink="/register" class="nav-item nav-link">Register</a>
             </ng-template>
         </div>

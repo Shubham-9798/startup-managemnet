@@ -5,7 +5,8 @@ export interface AuthModel {
     isLogin : boolean
     accessToken : string
     isloading:boolean
-    error:any
+    isloaded:boolean
+    error: any,
     hasError: boolean
 }
 
@@ -21,6 +22,7 @@ export interface AuthCredential {
     username: string
     password: string
 }
+
 export interface resData  {
     status: number
     accessToken: string

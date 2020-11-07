@@ -52,8 +52,9 @@ module.exports.login = async (req, res) => {
             return apiResponse.ErrorResponse(res, err)
         } 
         else{ 
-            if(docs === null)
-              return apiResponse.notFoundResponse(res, "Not Exists")
+            if(docs === null){
+              console.log("not found")
+              return apiResponse.notFoundResponse(res, "Not Exists")}
             else
               {
                   if(docs.password === password)
@@ -65,7 +66,7 @@ module.exports.login = async (req, res) => {
                         username: docs.username,
                         role: docs.role,
                         isAdmin: false
-                    }
+                     }
 
                     // console.log(tokenObj)
                     refreshTokenSchema.findOne({__id: {$eq:tokenObj._id}})

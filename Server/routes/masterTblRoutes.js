@@ -16,6 +16,9 @@ module.exports = function(app) {
 
     app.post("/add-master-evaluation-status", jwtUtility.authenticateAccessToken, MasterTblController.addEvaluationStatus)
 
+    app.get('/list-domain', jwtUtility.authenticateAccessToken, MasterTblController.getListDomain)
+    app.get('/list-category', jwtUtility.authenticateAccessToken, MasterTblController.getListCategory)
+
     // app.post("/update", jwtUtility.authenticateAccessToken, StartupController.update)
 
 	

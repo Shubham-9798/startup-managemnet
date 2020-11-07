@@ -19,6 +19,7 @@ var SomeModelSchema = new Schema({
 },
   isDraft: {type: Boolean, default: true},
   description:{type: String},
+  smallDesc:{type: String},
   categoryId:{ type: Schema.Types.ObjectId, ref: 'Master_Idea_Category' },
   domainId:{ type: Schema.Types.ObjectId, ref: 'Master_Idea_Domain' },
   statusId:{ type: Schema.Types.ObjectId, ref: 'Master_Idea_Status' },

@@ -27,6 +27,13 @@ module.exports.addDomain = async (req,  res) => {
         apiResponse.ErrorResponse(res, err)
     })
 }
+module.exports.getListDomain = async (req, res) => {
+    masterIdeaDomainSchema
+    .find({"isDeleted": false})
+    .select("_id type")
+    .then(data => apiResponse.successResponseWithData(res, "domain fetched", data))
+    .catch(err => apiResponse.ErrorResponse(res, err))
+}
 
 /////////////----------- MAster Category ----------------////////////////////////
 module.exports.addCategory = async (req,  res) => {
@@ -44,9 +51,15 @@ module.exports.addCategory = async (req,  res) => {
         apiResponse.ErrorResponse(res, err)
     })
 }
+module.exports.getListCategory = async (req, res) => {
+    masterIdeaCategorySchema
+    .find({"isDeleted": false})
+    .select("_id type")
+    .then(data => apiResponse.successResponseWithData(res, "domain fetched", data))
+    .catch(err => apiResponse.ErrorResponse(res, err))
+}
 
 /////////////----------- Master Status ----------------////////////////////////
-
 module.exports.addStatus = async (req,  res) => {
 
     let tbl = await new masterIdeaSatusSchema ({

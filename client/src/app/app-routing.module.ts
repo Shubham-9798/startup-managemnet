@@ -6,13 +6,21 @@ import { BaseAppComponent } from './components/public/base-app/base-app.componen
 import { LoginComponent } from './components/view/login/login.component';
 import { RegisterComponent } from './components/view/register/register.component';
 import { PageNotFoundComponent } from './components/view/page-not-found/page-not-found.component';
+import { AddIdeaComponent } from './components/main/add-idea/add-idea.component';
+import { ListIdeaComponent } from './components/main/list-idea/list-idea.component';
 
 const routes: Routes = [
   {path: '', component: BaseAppComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'dashboard', component: DashboardComponent},
+  {path: 'dashboard', component: DashboardComponent,
+  children: [
+    { path: 'add-idea', component: AddIdeaComponent, pathMatch:'full' },
+    { path: 'list-idea', component: ListIdeaComponent, pathMatch:'full' },
+    // { path: 'overview', component: Overview },
+    // { path: 'specs', component: Specs }
+  ]},
   {path: 'admin',
   loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
 

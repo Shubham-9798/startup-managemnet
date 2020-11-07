@@ -56,6 +56,7 @@ module.exports.addIdeaToUserArray = async(req, res) => {
         owner: user._id,
         title:  obj.title,
         description:  obj.description,
+        smallDesc: obj.smallDesc,
         categoryId: new ObjectId(obj.categoryId),
         domainId: new ObjectId(obj.domainId)   ,
         statusId: new ObjectId(obj.statusId),
@@ -66,7 +67,7 @@ module.exports.addIdeaToUserArray = async(req, res) => {
 
     idea.save()
       .then((result) => {
-          console.log(result);
+        //   console.log(result);
           userSchema.findOne({ _id: user._id }, (err, user) => {
             if (user) {
                 // The below two lines will add the newly saved review's 
@@ -116,7 +117,7 @@ module.exports.getIdeasOfUserAdmin = async (req, res) => {
         ]
     }])
     .exec()
-    .then(data => apiResponse.successResponseWithData(res,data))
+    .then(data => apiResponse.successResponseWithData(res,"List Successfully Fetched", data))
     .catch(err => apiResponse.ErrorResponse(res, err))
 }
 
