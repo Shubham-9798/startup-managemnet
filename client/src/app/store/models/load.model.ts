@@ -14,6 +14,7 @@ export interface Idea {
     statusId: MasterType,
     createdDate: String
     updatedDate: String
+    _id:String
 }
 
 export interface LoadState {

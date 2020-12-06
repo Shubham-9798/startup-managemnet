@@ -49,7 +49,7 @@ export class AddIdeaComponent implements OnInit {
           categoryId: ['', Validators.required],
           domainId: ['', Validators.required]
       });
-      this.load = this.st.select(store => store.Loads)
+      this.load = this.st.select(store => store.loadList)
       // this.load.subscribe(data => console.log(data))
   }
 

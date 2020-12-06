@@ -1,0 +1,12 @@
+.jumbotron {
+    background-color: rgb(210, 252, 252);
+    padding:10px 15px 10px;
+}
+
+.text {
+    font-size: 16px!important;
+}
+
+.box {
+    width: 50%;
+}

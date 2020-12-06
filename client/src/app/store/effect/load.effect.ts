@@ -5,7 +5,7 @@ import { map, mergeMap, catchError, switchMap, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 import { LoadActionType, LoadAction, LoadFail, LoadSuccess, LoadClass,
-         LoadIdeaList, LoadIdeaListFail, LoadIdeaListSuccess } from './../action/load.action';
+         LoadIdeaList, LoadIdeaListFail, LoadIdeaListSuccess, LoadIdeaDetails, LoadIdeaDetailsSuccess, LoadIdeaDetailsFail } from './../action/load.action';
 import { DashboardService} from './../../service/dashboard.service';
 import { StartupService } from 'src/app/service/startup.service';
 
@@ -35,14 +35,24 @@ export class LoadEffect {
           ofType<LoadIdeaList>(LoadActionType.LOAD_IDEA_LIST),
            switchMap((action)=> {
                return this._startup.getIdeaList().pipe(
-                  map((res) => { return new LoadIdeaListSuccess(res); })
+                  map((res) => { console.log("fectched"); return new LoadIdeaListSuccess(res); })
                )
            })  
           ,
             catchError(err => of(new LoadIdeaListFail(err)))
         )
 
-    
-     
+        @Effect()
+        IdeaDetails$ = this.actions$.pipe(
+            ofType<LoadIdeaDetails>(LoadActionType.LOAD_IDEA_DETAILS),
+            tap((action) => {
+                let id = action.paylaod
+                console.log(id);
+               return  ({type: LoadIdeaDetailsSuccess, payload: id})
+            })
+            ,
+            catchError(err => of(new LoadIdeaDetailsFail(err)))
+        )
+
                               
 }

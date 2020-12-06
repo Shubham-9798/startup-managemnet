@@ -6,6 +6,6 @@ export interface AppState {
     readonly auth: AuthModel
     readonly Category: CategoryState
     readonly Domain: DomainState
-    readonly Loads: LoadState
+    readonly loadList: LoadState
 
 }

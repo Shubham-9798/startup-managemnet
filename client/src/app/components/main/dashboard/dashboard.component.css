@@ -1,5 +1,5 @@
 #sidebar {
-    max-width: 25%;
+    width: 20%;
     background-color: rgb(32, 32, 167);
     color: white;
 }
@@ -7,6 +7,10 @@
 .wrapper {
     display: flex;
 }
+
+.wrapper > div {
+    margin: 6px;
+  }
 
 #content {
     flex-grow: 1;

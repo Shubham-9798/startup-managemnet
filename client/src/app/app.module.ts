@@ -41,6 +41,7 @@ import { SidebarComponent } from './components/view/sidebar/sidebar.component';
 import { AddIdeaComponent } from './components/main/add-idea/add-idea.component';
 import { ListIdeaComponent } from './components/main/list-idea/list-idea.component';
 import { IdeaDetailsComponent } from './components/main/idea-details/idea-details.component';
+import { AddTeamComponent } from './components/main/add-team/add-team.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { IdeaDetailsComponent } from './components/main/idea-details/idea-detail
     SidebarComponent,
     AddIdeaComponent,
     ListIdeaComponent,
-    IdeaDetailsComponent
+    IdeaDetailsComponent,
+    AddTeamComponent
   ],
   imports: [
     BrowserModule, 

@@ -1,7 +1,39 @@
-<p>list-idea works!</p>
+<!-- <router-outlet></router-outlet> -->
 
-<ul>
-    <!-- <li *ngFor="let idea of ideaList">
-        <div>{{idea.title}}</div>
-    </li> -->
-</ul>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Short Desc</th>
+        <th scope="col">Domain</th>
+        <th scope="col">Leader</th>
+        <th scope="col">Date</th>
+        <th scope="col">Submission Status</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let idea of ideaList| async; let ndx = index">
+        <th scope="row">{{ndx+1}}</th>
+        <td class='title'>
+            <a routerLink="/dashboard/list-idea/{{idea._id}}">{{idea.title}}</a>
+        </td>
+        <td>{{idea.smallDesc}}</td>
+        <td>{{idea.domainId.type}}</td>
+        <td>{{idea.submitedByTeamLeader}}</td> 
+        <td>{{idea.createdDate | date}}</td>
+        <td *ngIf="idea.isDraft; else loggedOut" >
+           {{edit}}
+        </td>
+        <td>       
+        <ng-template #loggedOut>
+           {{Submitted}}
+          </ng-template>
+        </td>
+
+
+      </tr>
+    </tbody>
+  </table>

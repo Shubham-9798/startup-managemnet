@@ -12,27 +12,30 @@ import { Idea } from 'src/app/store/models/load.model';
   styleUrls: ['./list-idea.component.css']
 })
 export class ListIdeaComponent implements OnInit {
-  private ideaList: Observable<Idea[]>
+   ideaList: Observable<Idea[]>
   private isLoaded: Observable<Boolean>
   private isLoading: Observable<Boolean>
+  private edit:String = 'Edit'
+  private Submitted:String = 'Submitted'
 
 
   constructor(private service: StartupService,
     private st: Store<AppState>, ) { 
-      // this.st.dispatch(new LoadIdeaList(null))
+      this.st.dispatch(new LoadIdeaList(null))
     }
     
 
   ngOnInit(): void {
    
-    this.isLoaded = this.st.select(store => store.Loads.isLoaded)
-    this.ideaList = this.st.select(store => store.Loads.ideas)
-    this.isLoading = this.st.select(store => store.Loads.isLoading)
+    this.isLoaded = this.st.select(store => store.loadList.isLoaded)
+    this.ideaList = this.st.select(store => store.loadList.ideas)
+    this.isLoading = this.st.select(store => store.loadList.isLoading)
+  }
 
-    // this.ideaList.subscribe(data => {console.log(data)})
-    this.isLoaded.subscribe((data) => {
-      console.log(data)
-    })
+  ngOnDestroy() {
+    // this.ideaList.unsubscribe();
+    console.log('unsubscribe');
+    
   }
   
 }
